@@ -10,6 +10,13 @@ version = '1.0-SNAPSHOT'
 // Repositories to resolve dependencies
 repositories {
     mavenCentral()
+    maven{
+        name="GitHubPackages"
+        url="https://maven.pkg.github.com/octocat/Publish-gradlePackage"
+        credentials{
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 // Dependencies
