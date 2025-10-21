@@ -1,18 +1,40 @@
+// Apply the Java Library plugin
 plugins {
     id 'java-library'
 }
 
+// Project coordinates
 group = 'my-commonJar'
 version = '1.0-SNAPSHOT'
 
+// Repositories to resolve dependencies
 repositories {
     mavenCentral()
 }
 
+// Dependencies
 dependencies {
+    // JUnit 5 for testing
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 }
 
+// Configure the test task to use JUnit Platform
 test {
     useJUnitPlatform()
+}
+
+// Optional: specify Java version compatibility
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// Optional: configure JAR artifact (if needed)
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': 'My Common JAR',
+                'Implementation-Version': version
+        )
+    }
 }
